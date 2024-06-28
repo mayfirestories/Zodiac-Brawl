@@ -47,14 +47,14 @@ if(player1Settings.isGrounded) {
 
 if player1Settings.isGrounded and player1Controls.keyJump {
 	show_debug_message("Jumping");
-	vsp = -5;
+	player1Settings.vsp = -5;
 } else if !player1Settings.isGrounded and player1Controls.keyJump and player1Settings.doubleJump and !player1Settings.doubleJumpUsed{
-	vsp = -3.5;
+	player1Settings.vsp = -3.5;
 	doubleJumpUsed = true;
 }
 
 if (!player1Settings.isGrounded) and keyboard_check(vk_lshift) {
-	hsp += (4*movement);
+	player1Settings.hsp += (4*player1Settings.movement);
 }
 
 if (place_meeting(x+player1Settings.hsp,y,floorObject)) {
