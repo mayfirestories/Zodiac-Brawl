@@ -8,7 +8,7 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
+  "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation Curves.yy","name":"Animation Curves","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -40,6 +40,8 @@
     {"id":{"name":"fireBallObject","path":"objects/fireBallObject/fireBallObject.yy",},},
     {"id":{"name":"floorObject","path":"objects/floorObject/floorObject.yy",},},
     {"id":{"name":"obj_UI_Fight","path":"objects/obj_UI_Fight/obj_UI_Fight.yy",},},
+    {"id":{"name":"player1Character","path":"objects/player1Character/player1Character.yy",},},
+    {"id":{"name":"player1Character","path":"objects/player1Character/player1Character.yy",},},
     {"id":{"name":"swordObject","path":"objects/swordObject/swordObject.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"aries_sprite","path":"sprites/aries_sprite/aries_sprite.yy",},},
