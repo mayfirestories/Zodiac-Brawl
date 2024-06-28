@@ -1,3 +1,6 @@
+if(global.game_paused){
+		exit;
+}
 
 hsp = fireballSpeed ;
 

@@ -1,3 +1,7 @@
+if(global.game_paused){
+		exit;
+}
+
 player1Controls.keyLeft = keyboard_check(ord("A"));
 player1Controls.keyRight = keyboard_check(ord("D"));
 player1Controls.keyUp = keyboard_check(ord("W"));

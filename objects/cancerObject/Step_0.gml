@@ -1,3 +1,7 @@
+if(global.game_paused){
+		exit;
+}
+
 if(healthPoints == 0) {
 	instance_destroy(cancerObject);
 }
