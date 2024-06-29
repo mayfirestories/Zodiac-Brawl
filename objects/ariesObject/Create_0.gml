@@ -48,8 +48,6 @@ Controls = function() {
     };
 };
 
-player1Controls = Controls();
-
 Settings = function() {
     return {
         x: 0,
@@ -71,3 +69,7 @@ Settings = function() {
 };
 
 player1Settings = Settings();
+player1Controls = Controls();
+
+player2Settings = Settings();
+player2Controls = Controls();
