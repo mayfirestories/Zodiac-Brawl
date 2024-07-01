@@ -2,7 +2,12 @@
 // You can write your code in this editor
 /// @description Insert description here
 // You can write your code in this editor
-
+AreaOfEffect = function () {
+	return {
+		Top: sprite_height/2,
+		Side: (sprite_width/2)*sign(image_xscale)
+	}
+}
 KnockbackFormula = function () {
     return {
         p: 0,
@@ -32,7 +37,6 @@ State = function() {
 		Hit: 5 // staggered by Attack
 	}
 }
-
 
 Settings = function() {
     return {

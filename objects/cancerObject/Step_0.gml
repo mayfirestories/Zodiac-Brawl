@@ -3,7 +3,7 @@ if(global.game_paused){
 }
 
 if(x>room_width || x<0 || y>room_height || y<0) {
-	instance_destroy(cancerObject);
+	instance_destroy();
 }
 
 keyLeft = keyboard_check(ord("A"));
@@ -11,17 +11,49 @@ keyRight = keyboard_check(ord("D"));
 keyUp = keyboard_check(ord("W"));
 keyDown = keyboard_check(ord("S"));
 keyJump = keyboard_check_pressed(vk_space);
+rangedAttack = mouse_check_button_pressed(mb_right);
+meleeAttack = mouse_check_button_pressed(mb_left);
 Can_Settings.isGrounded = place_meeting(x,y+1,floorObject);
 
 var movement = keyRight -keyLeft;
 
-Can_Settings.hsp = movement * -Can_Settings.movSpd;
+Can_Settings.hsp = movement * Can_Settings.movSpd;
 
 Can_Settings.vsp += Can_Settings.grav;
 
 if (movement !=0 ){
 	image_xscale = movement;
 }
+
+
+
+
+//Fireball attack --------------------------------------------------------------------------------
+if(rangedAttack and Can_Settings.canShoot) {
+
+	Can_Settings.canShoot = false;
+
+	var fireball = instance_create_layer(x+Can_Settings.attackRange * sign(image_xscale) , y, "Instances", fireBallObject);
+	fireball.image_xscale = image_xscale;
+	fireball.fireballSpeed *= fireball.image_xscale;
+}
+
+if (!instance_exists(fireBallObject)){
+	Can_Settings.canShoot = true;
+}
+//------------------------------------------------------------------------------------------------------
+
+
+
+
+//Melee Attack -------------------------------------------------------------------------------------
+if(meleeAttack) {
+	
+	var sword = instance_create_layer(x+sprite_width  , y, "Instances", swordObject);
+	swordObject.image_xscale *= image_xscale;
+	
+}
+//---------------------------------------------------------------------------------------------------
 
 if(Can_Settings.isGrounded) {
 	Can_Settings.doubleJumpUsed = false;
