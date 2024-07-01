@@ -1,16 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_controls",
+  "%Name":"obj_Parent_player",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_controls",
+  "name":"obj_Parent_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"UI_Controls",
-    "path":"folders/Objects/UI_Controls.yy",
+    "name":"players",
+    "path":"folders/Objects/players.yy",
   },
   "parentObjectId":null,
   "persistent":false,

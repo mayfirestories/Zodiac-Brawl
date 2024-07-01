@@ -10,8 +10,8 @@
   "name":"obj_UI_Fight",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"UI_Controls",
+    "path":"folders/Objects/UI_Controls.yy",
   },
   "parentObjectId":null,
   "persistent":false,

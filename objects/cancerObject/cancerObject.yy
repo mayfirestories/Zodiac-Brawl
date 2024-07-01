@@ -8,12 +8,12 @@
   "name":"cancerObject",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"players",
+    "path":"folders/Objects/players.yy",
   },
   "parentObjectId":{
-    "name":"ariesObject",
-    "path":"objects/ariesObject/ariesObject.yy",
+    "name":"obj_Parent_player",
+    "path":"objects/obj_Parent_player/obj_Parent_player.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
