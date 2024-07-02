@@ -3,8 +3,8 @@ if(global.game_paused){
 }
 
 if (instance_exists(parent_instance)) {
-    x = parent_instance.x;
-    y = parent_instance.y + parent_instance.sprite_height;
+    x = parent_instance.x + (sprite_width/2+parent_instance.sprite_width/2);
+    y = parent_instance.y - sprite_height/2 +parent_instance.sprite_height/2;
 	
 	//Collision with another player--------------------------------------------
 	if(place_meeting(x,y,obj_Parent_player)&&!place_meeting(x,y,parent_instance)){

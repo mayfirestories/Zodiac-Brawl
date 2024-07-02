@@ -109,7 +109,7 @@ if (alarm[0]==0){
 			var sword7 = instance_create_layer(x, y+sprite_height, "Instances", obj_AriesDownA);
 			sword7.image_xscale *= image_xscale;
 			sword7.parent_instance = id;
-			
+			sword7.image_yscale *= 0.5;
 	
 		} else
 		//Side A -------------------------------------------------------------------------------------
