@@ -30,17 +30,9 @@ P1Settings.vsp += P1Settings.grav;
 if (P1Settings.movement !=0 && P1Settings.isGrounded){
 	image_xscale = P1Settings.movement;
 }
+//---------------------------------------------------------------------------
 
-//Fireball attack --------------------------------------------------------------------------------
-if(rangedAttack and P1Settings.canShoot) {
-
-	P1Settings.canShoot = false;
-
-	var fireball = instance_create_layer(x+P1Settings.attackRange * sign(image_xscale) , y, "Instances", fireBallObject);
-	fireball.image_xscale = image_xscale;
-	fireball.fireballSpeed *= fireball.image_xscale;
-}
-
+//Reset Special Attack -------------------------------------------
 if (!instance_exists(fireBallObject)){
 	P1Settings.canShoot = true;
 }
@@ -113,9 +105,54 @@ if (!instance_exists(fireBallObject)){
 	
 		} else
 		//Neutral A  -------------------------------------------------------------------------------------
-		if(meleeAttack && P1Settings.isGrounded) {
+		if(meleeAttack) {
 			var sword = instance_create_layer(x+sprite_width , y, "Instances", swordObject);
 			swordObject.image_xscale *= image_xscale;
+	
+		} 
+		
+//Special Attacks
+		//UP B -------------------------------------------------------------------------------------
+		if(rangedAttack && keyUp && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			var fire = instance_create_layer(x, y-sprite_height, "Instances",fireBallObject);
+			fire.image_xscale *= image_xscale;
+			fire.fireballSpeed *= image_xscale;
+	
+		} else
+		//Down B -------------------------------------------------------------------------------------
+		if(rangedAttack && keyDown && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			var fire = instance_create_layer(x, y+sprite_height, "Instances", fireBallObject);
+			fire.image_xscale *= image_xscale;
+			fire.fireballSpeed *= image_xscale;
+	
+		} else
+		//Side BAir B (Para turn el sprite) -------------------------------------------------------------------------------------
+		if(rangedAttack && ((image_xscale<0&&keyRight) || (image_xscale>0&&keyLeft)) &&P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			image_xscale *= -1;
+			var fire = instance_create_layer(x+sprite_width , y, "Instances", fireBallObject);
+			fire.image_xscale *= image_xscale;
+			fire.fireballSpeed *= image_xscale;
+			
+	
+		} else
+		//Side B -------------------------------------------------------------------------------------
+		if(rangedAttack && (keyLeft||keyRight) && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			var fire = instance_create_layer(x+sprite_width , y, "Instances", fireBallObject);
+			fire.image_xscale *= image_xscale;
+			fire.fireballSpeed *= image_xscale;
+	
+		} else
+		
+		//Neutral B  -------------------------------------------------------------------------------------
+		if(rangedAttack&&P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			var fire = instance_create_layer(x+sprite_width , y, "Instances", fireBallObject);
+			fire.image_xscale *= image_xscale;
+			fire.fireballSpeed *= image_xscale;
 	
 		} 
 
@@ -137,7 +174,9 @@ if (P1Settings.isGrounded and keyJump) {
 if (!P1Settings.isGrounded) and keyboard_check(vk_lshift) {
 	P1Settings.hsp += (4*P1Settings.movement);
 }
+//-----------------------------------------------------------------
 
+//Horizontal Collision -----------------------------------------------------
 if (place_meeting(x+P1Settings.hsp,y,floorObject)) {
 	
 	while(!place_meeting(x+sign(P1Settings.hsp),y,floorObject)) {
@@ -147,7 +186,8 @@ if (place_meeting(x+P1Settings.hsp,y,floorObject)) {
 }
 
 x += P1Settings.hsp;
-
+//---------------------------------------------------------------------
+//Vertical Collision ------------------------------------------------------------
 if (place_meeting(x,y+P1Settings.vsp,floorObject)) {
 	
 	while(!place_meeting(x,y+sign(P1Settings.vsp),floorObject)) {
@@ -158,7 +198,7 @@ if (place_meeting(x,y+P1Settings.vsp,floorObject)) {
 
 y += P1Settings.vsp;
 
-
+//-------------------------------------------------------------------------------------------
 //Getting Hit Code ----------------------------------------------------------
 if(P1Settings.getGot == true){
 	P1Settings.knockies = launchCalculator.calculateLaunchSpeed();
