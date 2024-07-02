@@ -8,6 +8,10 @@
   "managed":true,
   "name":"player1Character",
   "overriddenProperties":[],
+  "parent":{
+    "name":"Zodiac Brawl",
+    "path":"Zodiac Brawl.yyp",
+  },
   "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,

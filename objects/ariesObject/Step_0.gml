@@ -33,126 +33,150 @@ if (P1Settings.movement !=0 && P1Settings.isGrounded){
 //---------------------------------------------------------------------------
 
 //Reset Special Attack -------------------------------------------
-if (!instance_exists(fireBallObject)){
+if (alarm[0]==0){
 	P1Settings.canShoot = true;
 }
 //------------------------------------------------------------------------------------------------------
-
 //Normal Attacks ----------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------
 		//UP Air -------------------------------------------------------------------------------------
-		if(meleeAttack && keyUp && !P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x , y-sprite_height, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
-			sword.image_blend = c_black;
+		if(meleeAttack && keyUp && !P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword1 = instance_create_layer(x , y-sprite_height, "Instances", obj_AriesUpAir);
+			sword1.image_xscale *= image_xscale;
+			sword1.image_blend = c_black;
+			sword1.parent_instance = id;
 	
 		} else
 		//---------------------------------------------------------------------------------------------------
 	
 		//Down Air -------------------------------------------------------------------------------------
-		if(meleeAttack && keyDown && !P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x , y+sprite_height, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
-			sword.image_blend = c_black;
+		if(meleeAttack && keyDown && !P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword2 = instance_create_layer(x , y+sprite_height, "Instances", obj_AriesDownAir);
+			sword2.image_xscale *= image_xscale;
+			sword2.image_blend = c_black;
+			sword2.parent_instance = id;
 	
 		} else
 		//---------------------------------------------------------------------------------------------------
 	
 		//Forward Air -------------------------------------------------------------------------------------
-		if(meleeAttack && ((image_xscale>0&&keyRight) || (image_xscale<0&&keyLeft)) && !P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x+sprite_width , y, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
-			sword.image_blend = c_black;
+		if(meleeAttack && ((image_xscale>0&&keyRight) || (image_xscale<0&&keyLeft)) && !P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword3 = instance_create_layer(x+sprite_width , y, "Instances", obj_AriesFAir);
+			sword3.image_xscale *= image_xscale;
+			sword3.image_blend = c_black;
+			sword3.parent_instance = id;
 	
 		} else
 		//Back Air -------------------------------------------------------------------------------------
-		if(meleeAttack && ((image_xscale<0&&keyRight) || (image_xscale>0&&keyLeft)) && !P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x-sprite_width , y, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
-			sword.image_blend = c_black;
+		if(meleeAttack && ((image_xscale<0&&keyRight) || (image_xscale>0&&keyLeft)) && !P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword4 = instance_create_layer(x-sprite_width , y, "Instances", obj_AriesBAir);
+			sword4.image_xscale *= image_xscale;
+			sword4.image_blend = c_black;
+			sword4.parent_instance = id;
 	
 		} else
 		//Neutral Air -------------------------------------------------------------------------------------
-		if(meleeAttack && !P1Settings.isGrounded) {
-			var sword = instance_create_layer(x+sprite_width , y, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
-			sword.image_blend = c_black;
+		if(meleeAttack && !P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword5 = instance_create_layer(x+sprite_width , y, "Instances", obj_AriesNAir);
+			sword5.image_xscale *= image_xscale;
+			sword5.image_blend = c_black;
+			sword5.parent_instance = id;
 	
 		} else
 		//UP A -------------------------------------------------------------------------------------
-		if(meleeAttack && keyUp && P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x, y-sprite_height, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
+		if(meleeAttack && keyUp && P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword6 = instance_create_layer(x, y-sprite_height, "Instances", obj_AriesUpA);
+			sword6.image_xscale *= image_xscale;
+			sword6.parent_instance = id;
 	
 		} else
 		//Down A -------------------------------------------------------------------------------------
-		if(meleeAttack && keyDown && P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x, y+sprite_height, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
+		if(meleeAttack && keyDown && P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword7 = instance_create_layer(x, y+sprite_height, "Instances", obj_AriesDownA);
+			sword7.image_xscale *= image_xscale;
+			sword7.parent_instance = id;
+			
 	
 		} else
 		//Side A -------------------------------------------------------------------------------------
-		if(meleeAttack && (keyLeft||keyRight) && P1Settings.isGrounded) {
-	
-			var sword = instance_create_layer(x+sprite_width , y, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
+		if(meleeAttack && (keyLeft||keyRight) && P1Settings.isGrounded && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword8 = instance_create_layer(x+sprite_width , y, "Instances", obj_AriesSideA);
+			sword8.image_xscale *= image_xscale;
+			sword8.parent_instance = id;
 	
 		} else
 		//Neutral A  -------------------------------------------------------------------------------------
-		if(meleeAttack) {
-			var sword = instance_create_layer(x+sprite_width , y, "Instances", swordObject);
-			swordObject.image_xscale *= image_xscale;
-	
+		if(meleeAttack && P1Settings.canShoot) {
+			P1Settings.canShoot = false;
+			alarm[0] = 60;
+			var sword9 = instance_create_layer(x+sprite_width , y, "Instances", obj_AriesNeutralA);
+			sword9.image_xscale *= image_xscale;
+			sword9.parent_instance = id;
+	 
 		} 
 		
 //Special Attacks
 		//UP B -------------------------------------------------------------------------------------
 		if(rangedAttack && keyUp && P1Settings.canShoot) {
 			P1Settings.canShoot = false;
-			var fire = instance_create_layer(x, y-sprite_height, "Instances",fireBallObject);
-			fire.image_xscale *= image_xscale;
-			fire.fireballSpeed *= image_xscale;
+			alarm[0] = 60;
+			var fire1 = instance_create_layer(x, y-sprite_height, "Instances",obj_UpSpecial);
+			fire1.image_xscale *= image_xscale;
+			fire1.fireballSpeed *= image_xscale;
 	
 		} else
 		//Down B -------------------------------------------------------------------------------------
 		if(rangedAttack && keyDown && P1Settings.canShoot) {
 			P1Settings.canShoot = false;
-			var fire = instance_create_layer(x, y+sprite_height, "Instances", fireBallObject);
-			fire.image_xscale *= image_xscale;
-			fire.fireballSpeed *= image_xscale;
+			alarm[0] = 60;
+			var fire2 = instance_create_layer(x, y+sprite_height, "Instances", obj_DownSpecial);
+			fire2.image_xscale *= image_xscale;
+			fire2.fireballSpeed *= image_xscale;
 	
 		} else
 		//Side BAir B (Para turn el sprite) -------------------------------------------------------------------------------------
 		if(rangedAttack && ((image_xscale<0&&keyRight) || (image_xscale>0&&keyLeft)) &&P1Settings.canShoot) {
 			P1Settings.canShoot = false;
+			alarm[0] = 60;
 			image_xscale *= -1;
-			var fire = instance_create_layer(x+sprite_width , y, "Instances", fireBallObject);
-			fire.image_xscale *= image_xscale;
-			fire.fireballSpeed *= image_xscale;
-			
+			var fire3 = instance_create_layer(x+sprite_width , y, "Instances", obj_SideSpecial);
+			fire3.image_xscale *= image_xscale;
+			fire3.fireballSpeed *= image_xscale;			
 	
 		} else
 		//Side B -------------------------------------------------------------------------------------
 		if(rangedAttack && (keyLeft||keyRight) && P1Settings.canShoot) {
 			P1Settings.canShoot = false;
-			var fire = instance_create_layer(x+sprite_width , y, "Instances", fireBallObject);
-			fire.image_xscale *= image_xscale;
-			fire.fireballSpeed *= image_xscale;
+			alarm[0] = 60;
+			var fire4 = instance_create_layer(x+sprite_width , y, "Instances",  obj_SideSpecial);
+			fire4.image_xscale *= image_xscale;
+			fire4.fireballSpeed *= image_xscale;
 	
 		} else
 		
 		//Neutral B  -------------------------------------------------------------------------------------
 		if(rangedAttack&&P1Settings.canShoot) {
 			P1Settings.canShoot = false;
-			var fire = instance_create_layer(x+sprite_width , y, "Instances", fireBallObject);
-			fire.image_xscale *= image_xscale;
-			fire.fireballSpeed *= image_xscale;
+			alarm[0] = 60;
+			var fire5 = instance_create_layer(x+sprite_width , y, "Instances",  obj_NeutralSpecial);
+			fire5.image_xscale *= image_xscale;
+			fire5.fireballSpeed *= image_xscale;
 	
 		} 
 

@@ -1,18 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"swordObject",
+  "%Name":"obj_AriesBAir",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"cancerObject","path":"objects/cancerObject/cancerObject.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"swordObject",
+  "name":"obj_AriesBAir",
   "overriddenProperties":[],
   "parent":{
-    "name":"attacks",
-    "path":"folders/Objects/attacks.yy",
+    "name":"aries_attacks",
+    "path":"folders/Objects/attacks/aries_attacks.yy",
   },
   "parentObjectId":null,
   "persistent":false,

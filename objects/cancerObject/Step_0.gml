@@ -6,11 +6,11 @@ if(x>room_width || x<0 || y>room_height || y<0) {
 	instance_destroy();
 }
 
-keyLeft = keyboard_check(ord("A"));
-keyRight = keyboard_check(ord("D"));
+keyLeft = keyboard_check(ord("O"));
+keyRight = keyboard_check(ord("P"));
 keyUp = keyboard_check(ord("W"));
 keyDown = keyboard_check(ord("S"));
-keyJump = keyboard_check_pressed(vk_space);
+keyJump = keyboard_check_pressed(vk_backspace);
 rangedAttack = mouse_check_button_pressed(mb_right);
 meleeAttack = mouse_check_button_pressed(mb_left);
 Can_Settings.isGrounded = place_meeting(x,y+1,floorObject);
@@ -49,8 +49,9 @@ if (!instance_exists(fireBallObject)){
 //Melee Attack -------------------------------------------------------------------------------------
 if(meleeAttack) {
 	
-	var sword = instance_create_layer(x+sprite_width  , y, "Instances", swordObject);
-	swordObject.image_xscale *= image_xscale;
+	var sword = instance_create_layer(x+sprite_width  , y, "Instances", obj_cancer_attack_test);
+	sword.image_xscale *= image_xscale;
+	
 	
 }
 //---------------------------------------------------------------------------------------------------

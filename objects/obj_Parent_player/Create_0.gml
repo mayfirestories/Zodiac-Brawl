@@ -61,7 +61,12 @@ Settings = function() {
     };
 };
 
-
+NormalHitBox = function() {
+	return{
+		xHitBox: 0,
+		yHitBox: 0
+	}
+}
 
 //Aries Setup
 AIState = State();
